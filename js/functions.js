@@ -18,7 +18,7 @@ const optionData = 0;
 
 switch (optionData) {
   case 0:
-    url = "https://juniortupapa.onrender.com"; // Cabron
+    url = "https://juniortupapa-1.onrender.com/"; // Cabron
     fuente = "Cabron";
     chatIds = ["-4700146384"];
     break;
